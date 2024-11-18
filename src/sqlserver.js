@@ -4,6 +4,7 @@ const config = {
     password: '021221',
     database: 'lekkus',
     server: 'localhost',
+    port: 1433,
     pool: {
       max: 10,
       min: 0,

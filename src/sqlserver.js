@@ -1,14 +1,19 @@
+import dotenv from 'dotenv';
+
+// Carrega as variáveis do arquivo .env
+dotenv.config();
+
 // Configurações de conexão SQL Server
 const config = {
-    user: 'sa',
-    password: '021221',
-    database: 'lekkus',
-    server: 'localhost',
-    port: 1433,
+    user: process.env.sql_user,
+    password: process.env.sql_password,
+    database: process.env.sql_database,
+    server: process.env.sql_server,
+    port: Number(process.env.sql_port),
     pool: {
-      max: 10,
-      min: 0,
-      idleTimeoutMillis: 30000
+      max: Number(process.env.sql_pool_max),
+      min: Number(process.env.sql_pool_min),
+      idleTimeoutMillis: Number(process.env.sql_pool_idleTimeoutMillis)
     },
     options: {
       trustServerCertificate: true

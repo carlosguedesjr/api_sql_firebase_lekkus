@@ -3,6 +3,8 @@ import cors from "cors";
 import { getOperacoes, postOperacao } from "./queries.js";
 import config from "./sqlserver.js";
 import sqlserver from "mssql"
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 
@@ -73,11 +75,11 @@ const cron = async (  ) => {
 
 setInterval(() => {
   cron();  
-}, 3000);//5minutos
+}, parseInt(process.env.milliseconds_cron));//5minutos
 
 
-app.listen(3333, () => {
-  console.log("Servidor rodando");
+app.listen(parseInt(process.env.PORT)|| 3000, () => {
+  console.log(process.env.start_message);
 });
 
 

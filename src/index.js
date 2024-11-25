@@ -75,7 +75,7 @@ const cron = async (  ) => {
 
 setInterval(() => {
   cron();  
-}, parseInt(process.env.milliseconds_cron));//5minutos
+}, parseInt(process.env.milliseconds_cron));
 
 
 app.listen(parseInt(process.env.PORT)|| 3000, () => {
